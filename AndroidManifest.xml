@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.zaber.helpseeking"
+    android:versionCode="1"
+    android:versionName="1.0" >
+            <uses-permission android:name="android.permission.READ_LOGS"/>
+        <uses-permission android:name="android.permission.READ_CONTACTS" />
+        <uses-permission android:name="android.permission.SEND_SMS" />
+        <uses-permission android:name="android.permission.CALL_PHONE" />     
+        <uses-permission android:name="android.permission.RECEIVE_SMS" />
+        <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="15" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/icon_person_illiterate"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        
+        <activity
+            android:name=".StartingMenu"
+            android:label="@string/app_name" 
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name=".CallPlace"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.zaber.helpseeking.CallPlace" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name=".SaveByHelper"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.zaber.helpseeking.SaveByHelper" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name=".AddHelper"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.zaber.helpseeking.AddHelper" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name=".EmptyHelper"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.zaber.helpseeking.EmptyHelper" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name=".ContactCall"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.zaber.helpseeking.ContactCall" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+                
+        <receiver android:name=".CallByHelper" >
+            <intent-filter android:priority="999">
+              <action android:name="android.provider.Telephony.SMS_RECEIVED"></action>
+    		</intent-filter>
+        </receiver>
+        
+        
+    </application>
+</manifest>
